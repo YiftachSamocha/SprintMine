@@ -1,0 +1,53 @@
+body{
+    background-color: rgba(12, 45, 53, 0.24);
+}
+h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 100px;
+    color: rgba(98, 0, 255, 0.63);
+}
+button{
+    background-color: rgba(98, 0, 255, 0.63);
+    height: 60px;
+    width: 90px;
+    margin: 0 auto;
+}
+.lives{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 100px;
+    color: rgba(98, 0, 255, 0.63);
+}
+.hidden{
+    display: none;
+}
+table {
+    margin: 100px auto;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: wheat;
+    
+    
+}
+.smiley img{
+    height: 50px;
+    width: auto;
+    
+}
+
+.cell img{
+    width: 20px;
+    height: auto;
+}
+.opened {
+    background-color: rgba(137, 43, 226, 0.829);
+}
+.endgame{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 100px;
+    color: rgba(98, 0, 255, 0.63);
+}

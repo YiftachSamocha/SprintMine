@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mines</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="onInit()">
+    <h1>MINE SWEEPER</h1>
+    <button class="level1" onclick="changeLevel(1)">Beginner</button>
+    <button class="level2" onclick="changeLevel(2)">Medium</button>
+    <button class="level3" onclick="changeLevel(3)">Expret</button>
+    <div class="lives">You have 3 lives</div>
+   <button class="smiley" onclick="onInit()"><img src="img/happy.jpg" alt=""></button>
+    
+    <table>
+        <tbody class="board"></tbody>
+        <div class="endgame"></div>
+        
+        
+    </table>
+    
+   
+
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
