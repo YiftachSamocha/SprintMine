@@ -9,39 +9,61 @@ var gGame = {
     shownCount: 0,
     markedCount: 0,
     secsPassed: 0,
-    lives: 3
+    lives: 3,
+    hints: 0,
+    saves:3,
 }
 var gBoard
 var gCell = {
     isMine: false,
     isShown: false,
-    count: 4
+    count: 0
 }
 const BOMB = `<img class="bomb" src="img/mine.jpg" alt="">`
 const FLAG = `<img class="flag" src="img/flag.png" alt="">`
 
-const HAPPY= `<img class="flag" src="img/happy.jpg" alt="">`
-const SAD= `<img class="flag" src="img/sad.jpg" alt="">`
-const VICTORY= `<img class="flag" src="img/victory.jpg" alt="">`
+const HAPPY = `<img class="flag" src="img/happy.jpg" alt="">`
+const SAD = `<img class="flag" src="img/sad.jpg" alt="">`
+const VICTORY = `<img class="flag" src="img/victory.jpg" alt="">`
 
 
 
 function onInit() {
-    var end = document.querySelector('.endgame')
-    end.classList.add('hidden')
-    var lives= document.querySelector('.lives')
-    lives.innerText= 'You have 3 lives'
-    var smiley= document.querySelector('.smiley')
-    smiley.innerHTML= HAPPY
+    resetGame()
     gBoard = buildEmptyBoard()
     renderBoard(gBoard)
-    console.log(gBoard)
+
+    
+
+}
+function resetGame(){
+    var elEnd = document.querySelector('.endgame')
+    elEnd.classList.add('hidden')
+    var elLives = document.querySelector('.lives')
+    elLives.innerText = 'You have 3 lives'
+    var elSmiley = document.querySelector('.smiley')
+    elSmiley.innerHTML = HAPPY
+    var elLight1 = document.querySelector('.n1')
+    if(elLight1.classList.contains('hidden')){
+        elLight1.classList.remove('hidden')
+    }
+    var elLight2 = document.querySelector('.n2')
+    if(elLight2.classList.contains('hidden')){
+        elLight2.classList.remove('hidden')
+    }
+    var elLight3 = document.querySelector('.n3')
+    if(elLight3.classList.contains('hidden')){
+        elLight3.classList.remove('hidden')
+    }
+    var elSaves= document.querySelector('.savesNum')
+    elSaves.textContent= '3'
+
     gGame.isOn = true
     gGame.shownCount = 0
     gGame.markedCount = 0
     gGame.secsPassed = 0
-    gGame.lives= 3
-
+    gGame.lives = 3
+    gGame.saves= 3
 }
 function buildEmptyBoard() {
     var board = []
@@ -170,7 +192,18 @@ function onCellClicked(row, col) {
     if (gBoard[row][col].isFlag) {
         return
     }
+    if (gGame.hints>0) {
+        peek(row, col)
+        setTimeout(function () {
+            unPeek(row, col)
+        }, 1000)
+        return
 
+    }
+    var elCell= document.querySelector('.loc'+row+col)
+    if(elCell.classList.contains('safe')){
+        return
+    }
 
     if (gBoard[row][col].isMine) {
         minePressed()
@@ -236,9 +269,9 @@ function isVictory() {
             gGame.isOn = false
             var end = document.querySelector('.endgame')
             end.classList.remove('hidden')
-            end.textContent= 'YOU WON! CONGRATULATIONS'
-            var smiley= document.querySelector('.smiley')
-            smiley.innerHTML= VICTORY
+            end.textContent = 'YOU WON! CONGRATULATIONS'
+            var smiley = document.querySelector('.smiley')
+            smiley.innerHTML = VICTORY
 
             return true
         }
@@ -248,11 +281,11 @@ function isVictory() {
 }
 
 
-function minePressed(){
+function minePressed() {
     gGame.lives--
-    var lives= document.querySelector('.lives')
-    lives.textContent= 'You have '+gGame.lives+' lives'
-    if(gGame.lives===0){
+    var lives = document.querySelector('.lives')
+    lives.textContent = 'You have ' + gGame.lives + ' lives'
+    if (gGame.lives === 0) {
         for (var i = 0; i < gLevel.SIZE; i++) {
             for (var j = 0; j < gLevel.SIZE; j++) {
                 if (gBoard[i][j].isMine) {
@@ -264,16 +297,16 @@ function minePressed(){
         gameOver()
         return
     }
-    alert('Hey! What are you doing?? Now '+gGame.lives+' more lives left')
-    
+    alert('Hey! What are you doing?? Now ' + gGame.lives + ' more lives left')
+
 }
 function gameOver() {
     gGame.isOn = false
     var end = document.querySelector('.endgame')
     end.classList.remove('hidden')
-    end.textContent= 'GAME OVER! YOU LOST!'
-    var smiley= document.querySelector('.smiley')
-    smiley.innerHTML= SAD
+    end.textContent = 'GAME OVER! YOU LOST!'
+    var smiley = document.querySelector('.smiley')
+    smiley.innerHTML = SAD
 
 }
 function changeLevel(level) {

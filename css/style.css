@@ -38,6 +38,10 @@ table {
     width: auto;
     
 }
+.hint img{
+    height: 50px;
+    width: auto;
+}
 
 .cell img{
     width: 20px;
@@ -45,6 +49,12 @@ table {
 }
 .opened {
     background-color: rgba(137, 43, 226, 0.829);
+}
+.peeked {
+    background-color: brown;
+}
+.safe{
+    background-color: gold;
 }
 .endgame{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

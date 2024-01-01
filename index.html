@@ -16,6 +16,16 @@
     <button class="level3" onclick="changeLevel(3)">Expret</button>
     <div class="lives">You have 3 lives</div>
    <button class="smiley" onclick="onInit()"><img src="img/happy.jpg" alt=""></button>
+   <div class="hint">
+   <button class="n1" onclick="hint(1)"><img src="img/light2.jpg" alt=""></button>
+   <button class="n2" onclick="hint(2)"><img src="img/light2.jpg" alt=""></button>
+   <button class="n3" onclick="hint(3)"><img src="img/light2.jpg" alt=""></button>
+   </div>
+   <div>
+    <button onclick="safeClick()">Safe Click</button>
+    You have <span class="savesNum">3</span> safe clicks
+   </div>
+   
     
     <table>
         <tbody class="board"></tbody>
@@ -28,6 +38,7 @@
 
 
     <script src="js/main.js"></script>
+    <script src="js/bonus.js"></script>
 
 </body>
 
