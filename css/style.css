@@ -1,63 +1,138 @@
-body{
+body {
     background-color: rgba(12, 45, 53, 0.24);
+    
+    
 }
-h1{
+button {
+    background-color: rgb(245, 203, 179);
+    height: 40px;
+    width: 85px;
+    font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+button:hover:not(.smiley){
+    background-color: rgba(247, 164, 116, 0.993);
+}
+
+h1 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    height: 100px;
     color: rgba(98, 0, 255, 0.63);
+    text-align: center;
 }
-button{
-    background-color: rgba(98, 0, 255, 0.63);
-    height: 60px;
-    width: 90px;
-    margin: 0 auto;
+
+
+.difficulty {
+    display: flex;
+    align-items: center; 
+    text-align: center;
+    justify-content: center; 
+    margin-top: 10px;
 }
-.lives{
+
+.difficulty button {
+    margin-right: 10px; 
+}
+
+.features {
+    margin-top: 10px;
+    display: flex;
+    align-items: center; 
+    text-align: center;
+    justify-content: center; 
+}
+.features button{
+    margin-right: 10px;
+}
+
+
+
+.data{
+    color: blueviolet;
+    font-size: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    height: 100px;
-    color: rgba(98, 0, 255, 0.63);
 }
-.hidden{
+
+.hidden {
     display: none;
 }
+
+
+.endgame {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgba(98, 0, 255, 0.63);
+    text-align: center;
+    font-size: 30px;
+}
+.smileyContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+.smiley{
+    background-color: transparent;
+    border: 0cap;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+.smiley img {
+    height: 60px;
+    width: auto;
+    background-color: transparent;
+    
+
+}
 table {
-    margin: 100px auto;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
 }
 
 .cell {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     text-align: center;
     border-radius: 10px;
     background-color: wheat;
-    
-    
+
+
 }
-.smiley img{
-    height: 50px;
-    width: auto;
-    
+.cell:hover:not(.safe):not(.peeked):not(.opened) {
+    background-color: rgb(252, 218, 156);
 }
-.hint img{
-    height: 50px;
+
+.hint img {
+    height: 20px;
     width: auto;
 }
 
-.cell img{
-    width: 20px;
+.cell img {
+    width: 15px;
     height: auto;
 }
+
 .opened {
-    background-color: rgba(137, 43, 226, 0.829);
+    background-color: rgb(245, 203, 179);
 }
+
 .peeked {
     background-color: brown;
 }
-.safe{
+
+.safe {
     background-color: gold;
 }
-.endgame{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    height: 100px;
-    color: rgba(98, 0, 255, 0.63);
+
+.megaHinted {
+    background-color: rgba(247, 164, 116, 0.993);
 }
+.storageContainer{
+    text-align: center;
+    color: blueviolet;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+
+

@@ -11,30 +11,69 @@
 
 <body onload="onInit()">
     <h1>MINE SWEEPER</h1>
-    <button class="level1" onclick="changeLevel(1)">Beginner</button>
-    <button class="level2" onclick="changeLevel(2)">Medium</button>
-    <button class="level3" onclick="changeLevel(3)">Expret</button>
-    <div class="lives">You have 3 lives</div>
-   <button class="smiley" onclick="onInit()"><img src="img/happy.jpg" alt=""></button>
-   <div class="hint">
-   <button class="n1" onclick="hint(1)"><img src="img/light2.jpg" alt=""></button>
-   <button class="n2" onclick="hint(2)"><img src="img/light2.jpg" alt=""></button>
-   <button class="n3" onclick="hint(3)"><img src="img/light2.jpg" alt=""></button>
-   </div>
-   <div>
-    <button onclick="safeClick()">Safe Click</button>
-    You have <span class="savesNum">3</span> safe clicks
-   </div>
-   
-    
+    <div class="data">
+        <div class="time">Time: <span class="timer"></span></div>
+        <div class="lives">Lives: 3</div>
+        <div class="minesToAdd"></div>
+    </div>
+    <div class="difficulty">
+        <button class="level1" onclick="changeLevel(1)">Beginner</button>
+        <button class="level2" onclick="changeLevel(2)">Medium</button>
+        <button class="level3" onclick="changeLevel(3)">Expret</button>
+        <div class="create"></div>
+        <button onclick="create()">Create</button>
+    </div>
+    <div class="features">
+        <div class="hint">
+            <button class="n1" onclick="hint(1)"><img src="img/lightOff.png" alt=""></button>
+            <button class="n2" onclick="hint(2)"><img src="img/lightOff.png" alt=""></button>
+            <button class="n3" onclick="hint(3)"><img src="img/lightOff.png" alt=""></button>
+        </div>
+        <button class="mega" onclick="megaMode()">Mega Hint</button>
+        <button class="undo" onclick="undo()">Undo</button>
+        <button class="exterminator" onclick="exterminator()">Exterminator</button>
+        <button class="dark" onclick="dark()">Dark Mode</button>
+        <div>
+            <button class="saves" onclick="safe()">Safe Click (<span class="savesNum">3</span>)</button>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="endgame"></div>
+    <div class="smileyContainer">
+        <button class="smiley" onclick="onInit()"><img src="img/happy.jpg" alt=""></button>
+    </div>
+
+
+
     <table>
         <tbody class="board"></tbody>
-        <div class="endgame"></div>
-        
-        
+
+
+
     </table>
-    
-   
+    <div class="storageContainer">
+        <table class="storage">
+            Best result:
+            <tr>
+                <td>Beginner</td>
+                <td>Medium</td>
+                <td>Expret</td>
+            </tr>
+            <tr>
+                <td class="beginner"></td>
+                <td class="medium"></td>
+                <td class="expret"></td>
+
+            </tr>
+        </table>
+    </div>
+
+
+
 
 
     <script src="js/main.js"></script>
