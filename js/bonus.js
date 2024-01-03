@@ -144,7 +144,7 @@ function addMineManuelly(row, col) {
         return
     }
     var elCell = document.querySelector('.loc' + row + '-' + col)
-    elCell.innerHTML = BOMB
+    elCell.innerHTML = MINE
     gBoard[row][col].isMine = true
     var numOfMines = document.querySelector('.numOfMines')
     var count = parseInt(numOfMines.innerHTML)
@@ -310,6 +310,17 @@ function exterminator() {
             }
             var count = minesAroundCount(gBoard, i, j)
             gBoard[i][j].count = count
+            if(gBoard[i][j].isShown){
+                var elCell= document.querySelector('.loc'+i+'-'+j)
+                if (gBoard[i][j].count !== 0) {
+                    elCell.textContent = gBoard[i][j].count
+                }
+                else{
+                    elCell.textContent= ''
+                }
+                
+                
+            }
         }
     }
     alert('3 Mines have been exterminated!')

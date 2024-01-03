@@ -27,9 +27,9 @@ var gCell = {
 const MINE = `<img class="mine" src="img/mine.png" alt="">`
 const FLAG = `<img class="flag" src="img/flag.png" alt="">`
 
-const HAPPY = `<img class="flag" src="img/happy.png" alt="">`
-const SAD = `<img class="flag" src="img/sad.png" alt="">`
-const VICTORY = `<img class="flag" src="img/victory.png" alt="">`
+const HAPPY = `<img src="img/happy.png" alt="">`
+const SAD = `<img src="img/sad.png" alt="">`
+const VICTORY = `<img src="img/victory.png" alt="">`
 // localStorage.setItem('beginner', 0)
 // localStorage.setItem('medium', 0)
 // localStorage.setItem('expret', 0)
@@ -87,6 +87,8 @@ function resetGame() {
     gGame.secsPassed = 0
     gGame.lives = 3
     gGame.saves = 3
+    gGame.hints.bulbNum= 0
+    gGame.hints.isHintMode= false
     gGame.creation = false
     gSeconds = 0
     gMega = [{ row: -1, col: -1, }, { row: -1, col: -1 }]
@@ -161,7 +163,6 @@ function isAround(neighbors, row, col) {
     }
     return false
 }
-
 
 function minesAroundCount(board, row, col) {
     if (board[row][col].isMine) {
@@ -278,7 +279,7 @@ function onCellClicked(row, col) {
     if (elCell.classList.contains('safe')) {
         return
     }
-    if (gGame.hints > 0) {
+    if (gGame.hints.bulbNum>0) {
         peek(row, col)
         setTimeout(function () {
             unPeek(row, col)
@@ -309,8 +310,8 @@ function onCellClicked(row, col) {
 
 }
 
-function markCell(i, j) {
-    var cellClass = '.loc' + i + '-' + j
+function markCell(row, col) {
+    var cellClass = '.loc' + row + '-' + col
     var elCell = document.querySelector(cellClass)
 
     if (elCell.classList.contains('opened')) {
@@ -318,18 +319,18 @@ function markCell(i, j) {
     }
 
     elCell.classList.add('opened')
-    if (gBoard[i][j].isMine) {
+    if (gBoard[row][col].isMine) {
         elCell.innerHTML = MINE
 
         return
     }
 
-    if (gBoard[i][j].count !== 0) {
-        elCell.textContent = gBoard[i][j].count
+    if (gBoard[row][col].count !== 0) {
+        elCell.textContent = gBoard[row][col].count
     }
-    if (gBoard[i][j].isShown === false) {
+    if (gBoard[row][col].isShown === false) {
         gGame.shownCount++
-        gBoard[i][j].isShown = true
+        gBoard[row][col].isShown = true
     }
 
 
